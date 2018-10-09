@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var wordArray = ["chicken", "peacock", "gorilla"];
+  var wordArray = ["chicken", "peacock", "gorilla", "dog", "hamster", "lion","zebra", "cow", "donkey", "buffalo"];
   var gameWord = "";
   var letters = "";
   var amtRight = 0;
@@ -11,14 +11,15 @@ $(document).ready(function() {
 
   $(".startClick").on("click", function() {
     // initialize a new
+    $(".gameSide.theWord").text("");
     $(".result").text("");
     amtRight = 0; // reset the amount of letters revealed
     gameWord = wordArray[Math.floor(Math.random() * wordArray.length)]; // randomly grab word from word array
     console.log("Game word: " + gameWord); // after word is grabbed, print to console
 
     for (var i = 0; i < gameWord.length; i++) {
-      // simply write blanks to screen
-      $(".l" + String(i)).text("_");
+
+      $(".gameSide.theWord").append('<span class="l'+String(i)+'"> _ </span>') // write blanks to document, with unique classes based on size of word
     }
     $(".wrongRem").text(String(maxGuess - numGuess));
     gameStart = true;
