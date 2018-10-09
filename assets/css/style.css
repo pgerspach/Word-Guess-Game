@@ -1,0 +1,13 @@
+body{
+    background-image: url("../images/Farm-Back.jpg");
+    background-repeat:no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+}
+.gameWrap{
+    font-size: 18px;
+}
+.pageHead{
+    font-family: 'Mali', calibri, cursive;
+    font-size:50px;
+}

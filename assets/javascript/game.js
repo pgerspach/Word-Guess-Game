@@ -1,5 +1,17 @@
 $(document).ready(function() {
-  var wordArray = ["chicken", "peacock", "gorilla", "dog", "hamster", "lion","zebra", "cow", "donkey", "buffalo"];
+  var wordArray = [
+    "cat",
+    "giraffe",
+    "horse",
+    "rabbit",
+    "tiger",
+    "tortoise",
+    "wolf",
+    "cow",
+    "pig",
+    "turkey",
+    "ostrich"
+  ];
   var gameWord = "";
   var letters = "";
   var amtRight = 0;
@@ -11,17 +23,25 @@ $(document).ready(function() {
 
   $(".startClick").on("click", function() {
     // initialize a new
+    $(".winImage").html("");
+    numGuess = 0;
+    letters = "";
+    amtRight = 0; // reset the amount of letters revealed
+    wrongLet = "";
+
     $(".gameSide.theWord").text("");
     $(".result").text("");
-    amtRight = 0; // reset the amount of letters revealed
     gameWord = wordArray[Math.floor(Math.random() * wordArray.length)]; // randomly grab word from word array
     console.log("Game word: " + gameWord); // after word is grabbed, print to console
 
     for (var i = 0; i < gameWord.length; i++) {
-
-      $(".gameSide.theWord").append('<span class="l'+String(i)+'"> _ </span>') // write blanks to document, with unique classes based on size of word
+      $(".gameSide.theWord").append(
+        '<span class="l' + String(i) + '"> _ </span>'
+      ); // write blanks to document, with unique classes based on size of word
     }
     $(".wrongRem").text(String(maxGuess - numGuess));
+    $(".guessed").text(wrongLet); // display wrong guesses
+
     gameStart = true;
   });
 
@@ -49,6 +69,13 @@ $(document).ready(function() {
               if (amtRight === gameWord.length) {
                 // if the amount of revealed letters matches the length of the gameWord, you win
                 $(".result").text("You win!");
+
+                $(".winImage").html(
+                  '<img src="assets/images/' +
+                    gameWord +
+                    '.png" alt="Generic Hangman Photo" width=80%>'
+                );
+
                 gameWord = ""; // reset gameword
                 letters = ""; // reset letters guessed
                 console.log("Amount right: " + String(amtRight));
@@ -58,6 +85,8 @@ $(document).ready(function() {
                 amtRight = 0;
                 $(".wins").text(numWins);
                 inWord = true;
+                gameStart = false;
+                startAfterWin();
               } else {
                 // if not all letters have been revealed, add the guessed letter to the letter string
                 if (!inWord) {
@@ -81,6 +110,8 @@ $(document).ready(function() {
               numGuess = 0; // reset number of incorrect guesses
               wrongLet = ""; // reset wrong letters
               amtRight = 0; // reset number of right guesses
+              numWins = 0;
+              gameStart = false;
             }
           }
           $(".guessed").text(wrongLet); // display wrong guesses
@@ -88,6 +119,29 @@ $(document).ready(function() {
       }
     }
   });
+  function startAfterWin() {
+    // initialize a new
+    //$(".winImage").html('');
+    numGuess = 0;
+    letters = "";
+    amtRight = 0; // reset the amount of letters revealed
+    wrongLet = "";
+
+    $(".gameSide.theWord").text("");
+    $(".result").text("");
+    gameWord = wordArray[Math.floor(Math.random() * wordArray.length)]; // randomly grab word from word array
+    console.log("Game word: " + gameWord); // after word is grabbed, print to console
+
+    for (var i = 0; i < gameWord.length; i++) {
+      $(".gameSide.theWord").append(
+        '<span class="l' + String(i) + '"> _ </span>'
+      ); // write blanks to document, with unique classes based on size of word
+    }
+    $(".wrongRem").text(String(maxGuess - numGuess));
+    $(".guessed").text(wrongLet); // display wrong guesses
+
+    gameStart = true;
+  }
 
   function inArray(checkKey, checkArr) {
     var tflag = false;
