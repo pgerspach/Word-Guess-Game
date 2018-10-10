@@ -23,7 +23,9 @@ $(document).ready(function() {
 
   $(".startClick").on("click", function() {
     // initialize a new
-    $(".winImage").html("");
+    $(".winImage").html(
+      '<img src="assets/images/animals.png" alt="Generic Hangman Photo" width=120%>'
+    );
     numGuess = 0;
     letters = "";
     amtRight = 0; // reset the amount of letters revealed
@@ -73,7 +75,7 @@ $(document).ready(function() {
                 $(".winImage").html(
                   '<img src="assets/images/' +
                     gameWord +
-                    '.png" alt="Generic Hangman Photo" width=80%>'
+                    '.png" alt="Generic Hangman Photo" width=100%>'
                 );
 
                 gameWord = ""; // reset gameword
@@ -122,6 +124,7 @@ $(document).ready(function() {
   function startAfterWin() {
     // initialize a new
     //$(".winImage").html('');
+   
     numGuess = 0;
     letters = "";
     amtRight = 0; // reset the amount of letters revealed

@@ -11,3 +11,9 @@ body{
     font-family: 'Mali', calibri, cursive;
     font-size:50px;
 }
+.gameSide{
+    font-size: 25px;
+}
+img{
+    margin-top:70%;
+}
