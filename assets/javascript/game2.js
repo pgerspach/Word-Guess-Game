@@ -15,6 +15,7 @@ $(document).ready(function() {
   $(".startClick").on("click", function() {
     changeImage("animals");
     startGame();
+    prompt();
   });
 
   $("body").keyup(function(event) {
