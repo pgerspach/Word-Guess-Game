@@ -105,6 +105,10 @@ $(document).ready(function() {
           writeToWord(key, i);
           didWin(key);
           inWord = true;
+          if(!gameStart){
+            startGame();
+            break;
+          }
         }
       }
       if (!inWord) {
@@ -135,7 +139,7 @@ $(document).ready(function() {
       numWins++;
       $(".wins").text(numWins);
       gameStart = false;
-      startGame();
+      
     } else {
       if (!inArray(key, letters)) {
         letters += key;
