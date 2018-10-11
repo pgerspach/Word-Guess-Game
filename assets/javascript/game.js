@@ -24,7 +24,7 @@ $(document).ready(function() {
   $(".startClick").on("click", function() {
     // initialize a new
     $(".winImage").html(
-      '<img src="assets/images/animals.png" alt="Generic Hangman Photo" width=120%>'
+      '<img src="assets/images/animals.png" alt="Generic Hangman Photo" height=60%>'
     );
     numGuess = 0;
     letters = "";
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 $(".winImage").html(
                   '<img src="assets/images/' +
                     gameWord +
-                    '.png" alt="Generic Hangman Photo" width=100%>'
+                    '.png" alt="Generic Hangman Photo" height=60%>'
                 );
 
                 gameWord = ""; // reset gameword
@@ -89,6 +89,7 @@ $(document).ready(function() {
                 inWord = true;
                 gameStart = false;
                 startAfterWin();
+                continue;
               } else {
                 // if not all letters have been revealed, add the guessed letter to the letter string
                 if (!inWord) {

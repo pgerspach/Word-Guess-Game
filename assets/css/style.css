@@ -6,14 +6,29 @@ body{
 }
 .gameWrap{
     font-size: 18px;
+    /* background-image: url("../images/fence.png"); */
+    background-size:calc(100%);
+    background-repeat: no-repeat;
+    /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+
 }
 .pageHead{
     font-family: 'Mali', calibri, cursive;
     font-size:50px;
+    font-variant: small-caps;
+    text-shadow: 2px 2px rgb(163, 103, 25);
+    color: rgba(83, 47, 6, 0.849)
+
+
 }
 .gameSide{
     font-size: 25px;
+    font-family: 'Mali', calibri, cursive;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+
+
 }
 img{
-    margin-top:70%;
+    max-width:120%;
+    height:auto;
 }
