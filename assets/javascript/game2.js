@@ -55,7 +55,9 @@ $(document).ready(function() {
       "cow",
       "pig",
       "turkey",
-      "ostrich"
+      "ostrich",
+      "rooster",
+      "sheep"
     ];
     gameWord = "";
     letters = "";
